@@ -11,7 +11,7 @@ class s_soe {
     mode   => '0440'
   }
 
-  $standard_packages = ['git','htop', 'bash', 'vim']
+  $standard_packages = ['git','htop']
 
   if $::osfamily == 'FreeBSD' {
     file {'/etc/motd':
