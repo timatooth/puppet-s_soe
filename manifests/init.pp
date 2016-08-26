@@ -11,7 +11,14 @@ class s_soe {
     mode   => '0440'
   }
 
-  $standard_packages = ['git','htop', 'iotop', 'ncdu']
+  $standard_packages = ['git','htop']
+
+  if $::osfamily == 'FreeBSD' {
+    file {'/etc/motd':
+      ensure => present,
+      source => 'puppet:///modules/s_soe/motd/unix',
+    }
+  }
 
   package {$standard_packages:}
 
