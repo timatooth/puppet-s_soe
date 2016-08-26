@@ -6,7 +6,7 @@ class s_soe::users ($users = undef) {
 
   # Workaround FreeBSD admin group being called 'wheel' -.-
   if $::osfamily == 'FreeBSD' {
-    accounts::user <|groups == 'admin'|> {
+    Accounts::User <|groups == 'admin'|> {
       groups => ['wheel']
     }
   }
