@@ -1,5 +1,10 @@
 class s_soe {
+  include pupistry
   include ::s_soe::users
+  include ntp
+  class { 'timezone':
+    timezone => 'Pacific/Auckland',
+  }
 
   file {'/etc/sudoers.d/':
     ensure => directory
