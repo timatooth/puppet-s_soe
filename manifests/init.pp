@@ -18,17 +18,15 @@ class s_soe {
 
   $standard_packages = ['git','htop', 'zsh']
 
-  if $::osfamily == 'FreeBSD' {
-    file {'/etc/motd':
-      ensure => present,
-      source => 'puppet:///modules/s_soe/motd/unix',
-    }
+  file {'/etc/motd':
+    ensure => present,
+    source => 'puppet:///modules/s_soe/motd/unix',
   }
 
   package {$standard_packages:}
 
   # Datadog monitoring
-  class { 'datadog_agent':
+  class { '::datadog_agent':
     api_key            => hiera('datadog_api_key', ''),
     puppet_run_reports => false,
   }
