@@ -27,4 +27,10 @@ class s_soe {
 
   package {$standard_packages:}
 
+  # Datadog monitoring
+  class { 'datadog_agent':
+    api_key            => hiera('datadog_api_key', ''),
+    puppet_run_reports => false,
+  }
+
 }
