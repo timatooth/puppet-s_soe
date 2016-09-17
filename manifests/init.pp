@@ -23,7 +23,7 @@ class s_soe {
     source => 'puppet:///modules/s_soe/motd/unix',
   }
 
-  package {$standard_packages:}
+  ensure_packages($standard_packages)
 
   # Datadog monitoring
   class { '::datadog_agent':
