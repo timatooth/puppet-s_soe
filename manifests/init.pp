@@ -1,6 +1,5 @@
 class s_soe {
   include pupistry
-  include ::s_soe::users
   include ntp
   class { 'timezone':
     timezone => 'Pacific/Auckland',
@@ -31,4 +30,6 @@ class s_soe {
     puppet_run_reports => false,
   }
 
+  # Create shell accounts on the system
+  include ::s_soe::users
 }
