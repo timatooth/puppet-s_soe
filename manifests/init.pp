@@ -15,7 +15,7 @@ class s_soe {
     mode   => '0440'
   }
 
-  $standard_packages = ['git','htop', 'zsh']
+  $standard_packages = ['git','htop', 'zsh', 'bash']
 
   file {'/etc/motd':
     ensure => present,
@@ -23,12 +23,6 @@ class s_soe {
   }
 
   ensure_packages($standard_packages)
-
-  # Datadog monitoring
-  class { '::datadog_agent':
-    api_key            => hiera('datadog_api_key', ''),
-    puppet_run_reports => false,
-  }
 
   # Create shell accounts on the system
   include ::s_soe::users
