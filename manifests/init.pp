@@ -1,5 +1,5 @@
 class s_soe {
-  include pupistry
+  #include pupistry
   include ntp
   class { 'timezone':
     timezone => 'Pacific/Auckland',
