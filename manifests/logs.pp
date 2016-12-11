@@ -4,6 +4,8 @@ class s_soe::logs (
 ) {
   $file_ensure = file
 
+  ensure_packages('rsyslog')
+
   if !$enable {
     $file_ensure = absent
   }
