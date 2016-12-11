@@ -3,8 +3,10 @@ class s_soe::logs (
   $syslog_address = 'syslog.timatooth.com:51400'
 ) {
   $file_ensure = file
-
-  ensure_packages('rsyslog')
+  
+  package {'rsyslog':
+    ensure => present
+  }
 
   if !$enable {
     $file_ensure = absent
