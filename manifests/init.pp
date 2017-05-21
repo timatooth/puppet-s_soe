@@ -1,9 +1,6 @@
 class s_soe($send_logs = false, $motd = 'unix') {
-  #include pupistry
+  include pupistry
   include ntp
-  class { 'timezone':
-    timezone => 'Pacific/Auckland',
-  }
 
   file {'/etc/sudoers.d/':
     ensure => directory
